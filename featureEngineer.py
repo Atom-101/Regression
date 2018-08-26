@@ -3,8 +3,7 @@ import math
 from scipy.special import comb
 from itertools import combinations
 
-def get_k(shape):
-    m,n = shape
+def get_k(m,n):
     k = 0
     sum = 0
     while(True):
@@ -19,10 +18,11 @@ def get_k(shape):
     
     return k
     
-def featureEngineer(dataset):
+def featureEngineer(dataset, k = None):
     dataset = np.asarray(dataset)
     m,n = dataset.shape
-    k = get_k(dataset.shape)
+    if(k is None):    
+        k = get_k(m,n)
     a = np.arange(n)    
     
     for i in range(2,k+1):
@@ -47,4 +47,4 @@ def featureEngineer(dataset):
     bias = np.ones((m,1))
     dataset = np.concatenate((bias,dataset),axis =1)
     
-    return dataset
+    return dataset,k
