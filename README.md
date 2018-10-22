@@ -1,2 +1,2 @@
 # Regression
-Regression using matrix methods. Alternative to machine learning
+Regression using matrix methods. Alternative to iterative machine learning
